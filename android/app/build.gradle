@@ -117,3 +117,39 @@ dependencies {
 }
 
 apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
+
+
+
+
+
+
+
+
+
+buildscript {
+    ext {
+        buildToolsVersion = "30.0.2"
+        minSdkVersion = 16
+        compileSdkVersion = 30
+        targetSdkVersion = 30
+    }
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath("com.android.tools.build:gradle:4.0.1") // Bu satırı mevcut olanın üzerine ekleyin
+    }
+}
+
+allprojects {
+    repositories {
+        mavenLocal()
+        google()
+        jcenter()
+        maven {
+            // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
+            url("$rootDir/../node_modules/react-native/android")
+        }
+    }
+}
