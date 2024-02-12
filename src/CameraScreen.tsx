@@ -39,7 +39,7 @@ const CameraScreen = () => {
       )}
       <Button title={"fotoğrafı gönder"} onPress={() => navigation.navigate('Home')} />
 
-    </View>n
+    </View>
   );
 };
 
