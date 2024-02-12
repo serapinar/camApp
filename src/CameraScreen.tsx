@@ -1,7 +1,9 @@
 import React, { useState, useRef } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, Image, Button } from "react-native";
 import { RNCamera } from 'react-native-camera';
+import { useNavigation } from "@react-navigation/native";
 const CameraScreen = () => {
+  const navigation=useNavigation()
   const cameraRef = useRef(null);
   const [photoUri, setPhotoUri] = useState(null);
 
@@ -18,7 +20,8 @@ const CameraScreen = () => {
       {photoUri ? (
         <View>
           <Text>Fotoğraf çekildi!</Text>
-          <Text>{photoUri}</Text>
+          <Text>çekilen fotoğraf</Text>
+          <Image style={{width:100, height:100}} source={{uri:photoUri}}/>
         </View>
       ) : (
         <RNCamera
@@ -34,6 +37,8 @@ const CameraScreen = () => {
           </View>
         </RNCamera>
       )}
+      <Button title={"fotoğrafı gönder"} onPress={() => navigation.navigate('Home')} />
+
     </View>
   );
 };
