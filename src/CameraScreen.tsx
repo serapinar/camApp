@@ -35,13 +35,13 @@ const CameraScreen = () => {
   };
 
   return (
-    <View style={{flex: 1}}>
+    <View style={{ flex: 1 }}>
       {photoUri ? (
         <View>
           <Text>Fotoğraf çekildi!</Text>
           <Text>{photoUri}</Text>
           <Image style={{width:100, height:100}} source={{uri:photoUri}}/>
-          <Button title={'upload'} onPress={camAlert} />
+          <Button title={'upload'} onPress={camAlert()} />
         </View>
       ) : (
         <RNCamera

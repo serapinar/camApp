@@ -6,7 +6,6 @@ export default function HomeScreen() {
   const navigation = useNavigation();
   const route = useRoute();
   const {photoUri} = route.params || {};
-  console.log("ccccc", photoUri)
   return (
     <View>
       <View>
